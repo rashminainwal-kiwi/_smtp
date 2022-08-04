@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block content %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <h3 class="heading mb-4">SMTP Tester - Validate the email delivery!</h3>
+                    <p>Kindly use this page to test and validate the email delivery with the credentials.</p>
+                    <p><img src="static/images/undraw-contact.svg" alt="Image" class="img-fluid"></p>
+                </div>
+                <div class="col-md-6">
+                    <form class="mb-5" method="post" id="contactForm" name="contactForm" action="sender">
+<!--                        {% csrf_token%}-->
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" name="host" id="host" autocomplete="off"
+                                       placeholder="SMTP Server. eg, smtp.kiwitech.com">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <input type="text" class="form-control" name="username" id="username" autocomplete="off"
+                                       placeholder="Username">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="password" id="password" autocomplete="off"
+                                       placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="port"></label>
+                                <input type="number" class="form-control" name="port" id="port" autocomplete="off"
+                                       placeholder="Port">
+                            </div>
+                            <div class="form-check col-md-3 mt-lg-5 pl-5">
+                                <input type="checkbox" class="form-check-input" id="use secured connection">
+                                <label class="form-check-label" for="use secured connection">
+                                    SSL
+                                </label>
+                            </div>
+                            <div class="form-check col-md-3 mt-5">
+                                <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                <label class="form-check-label" for="dropdownCheck">
+                                    Authenticate
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <input type="email" class="form-control" name="email_from" id="email_from"
+                                       autocomplete="off" placeholder="Email - From Address ">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <input type="email" class="form-control" name="email_to" id="email_to"
+                                       autocomplete="off" placeholder="Email - To Address ">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" name="subject" id="subject" autocomplete="off"
+                                       placeholder="Subject">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <textarea class="form-control" name="message" id="message" autocomplete="off" cols="30"
+                                          placeholder="Content of the email"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <input type="submit" value="Send Message" name="submit"
+                                       class="btn btn-primary rounded-0 py-2 px-4" id ="block">
+                                <span class="submitting"></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="form-message-warning mt-4"></div>
+                    <div id="form-message-success">
+                        It's Working!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<script>-->
+<!--&lt;!&ndash;    function disable_button(){&ndash;&gt;-->
+<!--&lt;!&ndash;        $("#block").prop('disabled', true);&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+<!--&lt;!&ndash;</script>&ndash;&gt;-->
+{% endblock %}
