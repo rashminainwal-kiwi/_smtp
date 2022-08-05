@@ -2,3 +2,5 @@
 .idea/*
 .idea
 db.sqlite3
+pylintrc
+__pycache__
