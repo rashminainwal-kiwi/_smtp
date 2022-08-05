@@ -7,7 +7,6 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.views import View
 from django.contrib import messages
-from django.views.decorators.csrf import csrf_exempt
 
 
 class Sender(View):
@@ -56,7 +55,4 @@ class Sender(View):
         except Exception as error:
             logging.error(error)
             messages.error(request, 'Invalid credentials ')
-            # messages.error(request, form.errors)
         return JsonResponse({"msg": "true"})
-
-            # return render(request, 'home.html')

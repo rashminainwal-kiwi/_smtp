@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-md-6">
                     <form class="mb-5" method="post" id="contactForm" name="contactForm" action="sender">
-<!--                        {% csrf_token%}-->
+                        {% csrf_token %}
                         <div class="row">
                             <div class="col-md-12 form-group">
                                 <input type="text" class="form-control" name="host" id="host" autocomplete="off"
@@ -75,23 +75,18 @@
                         <div class="row">
                             <div class="col-12">
                                 <input type="submit" value="Send Message" name="submit"
-                                       class="btn btn-primary rounded-0 py-2 px-4" id ="block">
+                                       class="btn btn-primary rounded-0 py-2 px-4" id="block">
                                 <span class="submitting"></span>
                             </div>
                         </div>
                     </form>
-                    <div id="form-message-warning mt-4"></div>
-                    <div id="form-message-success">
-                        It's Working!
+                    <div id="pageloader">
+                        <img src="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/images/loader-large.gif"
+                             alt="processing..."/>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!--<script>-->
-<!--&lt;!&ndash;    function disable_button(){&ndash;&gt;-->
-<!--&lt;!&ndash;        $("#block").prop('disabled', true);&ndash;&gt;-->
-<!--&lt;!&ndash;    }&ndash;&gt;-->
-<!--&lt;!&ndash;</script>&ndash;&gt;-->
 {% endblock %}

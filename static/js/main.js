@@ -1,8 +1,9 @@
 $(document).ready(function(){
+             $("#pageloader").hide();
 			$( "#contactForm" ).validate( {
 			submitHandler: function(form) {
 			  update_user_basic_profile()
-              $("#block").hide();
+
             },
             rules: {
              host: {
@@ -63,45 +64,37 @@ $(document).ready(function(){
           required: "Please provide a message."
         },
        },
-//       / submit via ajax /
 	});
 
 	function update_user_basic_profile(){
-//	alert($("input[name=csrfmiddlewaretoken]").val())
-	alert('another function')
         var basic_profile_update_url = "sender"
         $.ajax({
             url: basic_profile_update_url,
             type : 'POST',
             data: {
-//             'csrfmiddlewaretoken': $("input[name=csrfmiddlewaretoken]").val(),
-             'host': $('#host').val(),
-             'username': $('#username').val()
-             'port': $("#port").val(),
-             'email_to': $("#email_to").val(),
-             'email_from': $("#email_from").val(),
-             'message': $("#message").val(),
-             'subject': $("#subject").val(),
-             'password': $("#password").val()
+             csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val(),
+             host: $('#host').val(),
+             username: $('#username').val(),
+             port: $("#port").val(),
+             email_to: $("#email_to").val(),
+             email_from: $("#email_from").val(),
+             message: $("#message").val(),
+             subject: $("#subject").val(),
+             password: $("#password").val()
             },
-            //data : {search : 'kkkkkkkkk', 'csrfmiddlewaretoken': $("input[name=#csrfmiddlewaretoken]").val()},
             beforeSend : function(){
-                alert('1111')
-                 $('#block').hide();
+                 $('#block').prop('disabled', true);
+                 $("#pageloader").fadeIn();
             },
             success: function (msg) {
-            alert('sucess')
-//              if(msg.msg=='true'){
-//                  alert('sccc')
-//
-//                }else{
-//                  alert('fail')
-//                }
-                $('#block').show();
+                location.reload();
+                $('#block').prop('disabled', false);
+
             },
             error: function(error) {
-                alert('error')
+
             }
         });
     }
 });
+

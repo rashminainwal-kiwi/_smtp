@@ -98,3 +98,20 @@ label.error {
   font-weight: bold;
   font-size: 12px;
   color: #000; }
+
+#pageloader
+{
+
+  height: 100%;
+  width: 100%;
+
+}
+
+#pageloader img
+{
+  left: 50%;
+  margin-left: -32px;
+  margin-top: -32px;
+  position: absolute;
+  top: 50%;
+}
