@@ -1,5 +1,5 @@
 """
-smtp_app  views
+smtp app views
 """
 import logging
 import smtplib
