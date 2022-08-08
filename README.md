@@ -47,9 +47,10 @@
         ```
         
 3. Database Setup:
+
        ```
-       no use of database
-     ```
+       $ no use of database
+      ```
 
 
 4. Run servers:
