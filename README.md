@@ -1,7 +1,5 @@
 # _smtp
 
-# smtp-mail
-
 
 ### Prerequisite:
 
