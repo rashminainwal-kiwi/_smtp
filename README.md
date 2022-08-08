@@ -25,7 +25,7 @@
                   above command , you can use the following commands too.
 
             *   Create virtualenv using Python3:-
-                    - virtualenv -p python3.8 venv
+                    - virtualenv -p python3.10.4 venv
           
 
     * Activate environment:
