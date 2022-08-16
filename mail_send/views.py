@@ -3,13 +3,12 @@ smtp app views
 """
 import logging
 import smtplib
-import ssl
 from django.contrib import messages
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.views import View
 
-import constants
+from mail_send import constants
 
 
 class Sender(View):
@@ -42,11 +41,10 @@ class Sender(View):
         host = request.POST.get('host')
         subject = request.POST.get('subject')
         message = request.POST.get('message')
-        context = ssl.create_default_context()
         try:
             mail_sends = smtplib.SMTP(host, port)
             mail_sends.ehlo()
-            mail_sends.starttls(context=context)
+            mail_sends.starttls()
             mail_sends.ehlo()
             mail_sends.login(email_from, password)
             data = "Subject:" + subject + "\n" + message + "\n" + username

@@ -3,7 +3,7 @@ $(document).ready(function(){
 			$( "#contactForm" ).validate( {
 			submitHandler: function(form) {
 			  update_user_basic_profile()
-
+			  $( "#block" ).val('please wait ..');
             },
             rules: {
              host: {
