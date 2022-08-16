@@ -89,7 +89,6 @@ $(document).ready(function(){
             success: function (msg) {
                 location.reload();
                 $('#block').prop('disabled', false);
-
             },
             error: function(error) {
 
